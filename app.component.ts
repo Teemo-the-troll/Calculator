@@ -9,41 +9,50 @@ export class AppComponent {
   title = 'my-project';
   private vysledek = 0;
   private priklad = [];
+  private prikladFake = '';
   private operators = [];
-  private mezipamet = null;
+  private mezipamet = '';
 
+  
   addNumberToMezipamet(x) {
+    console.log('pridavam cislo: ' + x)
+    this.prikladFake += (x);
     this.mezipamet += (x);
+    console.log('mezipamet po pridavku: ' + this.mezipamet)
+    
   }
 
   flushMezipamet() {
-    this.priklad.push(this.mezipamet);
-    this.mezipamet = null;
+    console.log('mezipamet flush: ' + this.mezipamet)
+    this.priklad.push(parseInt(this.mezipamet));
+    this.mezipamet = '';
   }
 
   addOperator(x) {
+    this.prikladFake += (x);
     this.flushMezipamet();
     this.operators.push(x);
+    
   }
 
   getInt() {
     this.flushMezipamet();
-    console.log('toto je priklad na vypocet: ' + this.mezipamet);
+    console.log('toto je priklad na vypocet: ' + this.priklad);
     console.log('toto je vysledek: ');
     console.log('delka pole prikladu: ' + this.priklad.length)
   this.vysledek = this.priklad[0];
     for (let i = 0; i < this.priklad.length; i++) {
       switch (this.operators[i]) {
         case '+':
-          this.vysledek += parseInt(this.priklad[i+1]);
+          this.vysledek += this.priklad[i+1];
           break;
 
         case '-':
-          this.vysledek -= parseInt(this.priklad[i+1]);
+          this.vysledek -= this.priklad[i+1];
           break;
         
         case '*':
-          this.vysledek *= parseInt(this.priklad[i+1]);
+          this.vysledek *= this.priklad[i+1];
           break;
         
        // case '/':       dodelam pak pripadne
@@ -53,7 +62,7 @@ export class AppComponent {
           break;
       }
       console.log(this.vysledek);
-
+      this.prikladFake = this.vysledek.toString();
     }
   }
 
