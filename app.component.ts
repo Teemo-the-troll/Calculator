@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'my-project';
   private vysledek = 0;
   private priklad = [];
-  private prikladFake = '0';
+  private prikladFake = '';
   private operators = [];
   private mezipamet = '';
 
