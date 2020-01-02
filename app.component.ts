@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'my-project';
   private vysledek = 0;
   private priklad = [];
-  private prikladFake = '';
+  private prikladFake = '0';
   private operators = [];
   private mezipamet = '';
 
@@ -55,8 +55,9 @@ export class AppComponent {
           this.vysledek *= this.priklad[i+1];
           break;
         
-       // case '/':       dodelam pak pripadne
-         // break;
+        case '/':      
+          this.vysledek /= this.priklad[i+1];
+          break;
 
           default:
           break;
