@@ -11,3 +11,8 @@ version v2.0
   - the result now shows in the place of the problem area
   - now can calculate very big numbers ( maybe can use doubles instead of ints)
   
+ version v3.0
+  - prettied the buttons
+  - all of them look the same size
+  - added division option
+  
